@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QORGAU AI жобасы</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE  formal research showcase for a youth science contest, confident and clear
+   IDEA   a Kazakh state document: passport cover blue, gold seal, qoshqar-muiz ornament border
+   PICTURE the author's triad Адам – Алгоритм – Құқық drawn live, a token circling the three nodes
+   COLOUR sky-steppe blue #0a5a73 fields, ink #071f27, gold #e9ad0c accent, white ground
+   TYPE   Unbounded (titles, Kazakh Cyrillic) + Inter (text)
+   LAYOUT hero band deep blue: title + aim left, triad right; phone: title, triad, buttons */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#061419);--ink:light-dark(#071f27,#e6f1f4);--mut:light-dark(#3c5a63,#9db8c0);--blue:#0a5a73;--deep:light-dark(#063847,#031d26);--sky:light-dark(#e3f3f7,#0b2a33);--gold:#e9ad0c;--line:light-dark(#cfe2e8,#1d3f49);--card:light-dark(#ffffff,#0a2029)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:Unbounded,Inter,sans-serif;line-height:1.12;letter-spacing:-.01em;text-wrap:balance;margin:0 0 .5em}
+h1{font-size:clamp(28px,4.4vw,48px);font-weight:700}
+h2{font-size:clamp(24px,3vw,36px);font-weight:700}
+h3{font-size:18px;font-weight:500}
+p{margin:0 0 1em;max-width:70ch}
+a{color:inherit}
+.band{padding:clamp(36px,5vw,72px) max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+.lead{font-size:17px;color:var(--mut)}
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--deep) 94%,transparent);backdrop-filter:blur(8px);color:#fff;border-bottom:1px solid #ffffff1f}
+nav .wrap{display:flex;align-items:center;gap:18px;padding:10px max(5vw,16px);max-width:none}
+.logo{font-family:Unbounded,sans-serif;font-weight:700;font-size:15px;white-space:nowrap;text-decoration:none;display:flex;gap:8px;align-items:center}
+.logo i{width:22px;height:22px;border-radius:50%;background:var(--gold);display:inline-block;box-shadow:inset -4px -4px 0 #b58300}
+.scroll{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.scroll a{flex:none;text-decoration:none;font-size:14px;padding:8px 10px;border-radius:8px;color:#d7ecf2}
+.scroll a:hover,.scroll a:focus-visible{background:#ffffff1a;color:#fff;outline:none}
+.hero{background:var(--deep);color:#fff;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(20px,4vw,56px);align-items:center}
+.hero p{color:#cfe6ec}
+.tag{display:inline-block;font-size:14px;color:var(--gold);border:1px solid #e9ad0c66;border-radius:999px;padding:4px 12px;margin-bottom:18px}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:0 20px;border-radius:10px;font:600 15px Inter,sans-serif;text-decoration:none;border:0;cursor:pointer}
+.btn.g{background:var(--gold);color:#1d1400}.btn.o{background:transparent;color:#fff;border:1.5px solid #ffffff55}
+.btn:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.fig{position:relative;min-height:400px}.fig>svg{position:absolute;inset:0;width:100%;height:100%}
+.orn{height:22px;background:var(--deep)}
+.orn svg{display:block;width:100%;height:22px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(11em,1fr));gap:1px;background:#ffffff22;border-radius:14px;overflow:hidden;margin-top:28px}
+.facts div{background:#08445570;padding:14px 16px}
+.facts b{display:block;font:700 clamp(20px,2.4vw,28px) Unbounded,sans-serif;color:var(--gold);white-space:nowrap}
+.facts span{font-size:13px;color:#cfe6ec}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,48px)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:clamp(18px,2.4vw,28px)}
+.sky{background:var(--sky)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.tabs button{min-height:44px;padding:0 16px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 14px Inter,sans-serif;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--blue);color:#fff;border-color:var(--blue)}
+.tasks{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(15em,1fr));gap:12px}
+.tasks li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px 14px 48px;position:relative;font-size:15px}
+.tasks li::before{content:"";position:absolute;left:16px;top:17px;width:18px;height:18px;border-radius:50%;border:2px solid var(--gold);background:radial-gradient(circle,var(--gold) 38%,transparent 42%)}
+.chain{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;position:relative;margin:26px 0 18px}
+.chain::before{content:"";position:absolute;left:6%;right:6%;top:31px;height:3px;background:linear-gradient(90deg,var(--blue),var(--gold))}
+.chain button{position:relative;background:none;border:0;color:var(--ink);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:8px;font:600 14px Inter,sans-serif;padding:0 2px;min-height:44px;text-align:center}
+.chain .dot{width:64px;height:64px;border-radius:50%;background:var(--card);border:3px solid var(--blue);display:grid;place-items:center;font:700 18px Unbounded,sans-serif;color:var(--blue);transition:.2s}
+.chain button[aria-pressed=true] .dot{background:var(--gold);border-color:var(--gold);color:#1d1400;transform:scale(1.08)}
+.risk{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+.risk div{border-radius:12px;padding:16px 18px}
+.risk .bad{background:light-dark(#fdeceb,#2a1414)}.risk .ok{background:light-dark(#e6f5ec,#0e2619)}
+.risk b{display:block;margin-bottom:4px}
+.tl{list-style:none;padding:0;margin:0;position:relative}
+.tl::before{content:"";position:absolute;left:58px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tl li{display:grid;grid-template-columns:116px minmax(0,1fr);gap:16px;padding:0 0 22px;position:relative}
+.tl time{font:700 15px Unbounded,sans-serif;color:var(--blue);text-align:right;padding-right:18px;white-space:nowrap}
+.tl li::after{content:"";position:absolute;left:52px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--gold);border:3px solid var(--bg)}
+.tl time{padding-right:0;text-align:left;padding-left:0}
+.tl li{grid-template-columns:100px minmax(0,1fr)}.tl::before{left:106px}.tl li::after{left:100px}
+.tl li>div{padding-left:22px}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{padding:12px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{background:var(--blue);color:#fff;font-weight:600}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:600}
+.lvl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.lvl div{border-radius:14px;padding:18px;border:1px solid var(--line);background:var(--card)}
+.lvl .m{height:10px;border-radius:5px;background:var(--line);margin:10px 0 14px;overflow:hidden}
+.lvl .m i{display:block;height:100%;background:linear-gradient(90deg,#2fa36b,var(--gold),#d64933)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(16em,1fr));gap:14px}
+.cards .panel h3{color:var(--blue)}
+:root[data-theme=dark] .cards .panel h3{color:#7fd0e6}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .cards .panel h3{color:#7fd0e6}}
+.big{font:700 clamp(40px,6vw,64px) Unbounded,sans-serif;color:var(--gold);line-height:1}
+label{display:block;font-weight:600;font-size:14px;margin:12px 0 6px}
+input,select,textarea{width:100%;font:16px Inter,sans-serif;padding:11px 12px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink)}
+textarea{min-height:90px;resize:vertical}
+.chk{display:flex;gap:10px;align-items:center;font-weight:500;margin:10px 0;min-height:32px}
+.chk input{width:22px;height:22px;flex:none;accent-color:var(--blue)}
+.pass{background:var(--deep);color:#fff;border-radius:18px;padding:22px;position:relative;overflow:hidden;border:2px solid #e9ad0c55}
+.pass h3{color:var(--gold);font-size:16px}
+.pass dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 14px;margin:14px 0;font-size:14px}
+.pass dt{color:#9fc6d1}.pass dd{margin:0;font-weight:600}
+.meter{height:14px;border-radius:7px;background:#ffffff22;overflow:hidden;margin:8px 0}
+.meter i{display:block;height:100%;transition:width .4s,background .4s}
+.seal{position:absolute;right:-18px;top:-18px;width:110px;height:110px;opacity:.9}
+.qa{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:18px;align-items:start}
+.cats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.cats button{min-height:56px;text-align:left;padding:10px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:600 14px Inter,sans-serif;cursor:pointer}
+.cats button[aria-pressed=true]{border-color:var(--gold);background:color-mix(in srgb,var(--gold) 16%,var(--card))}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;padding:10px 0 10px 44px;position:relative;border-bottom:1px dashed var(--line)}
+.steps li::before{content:counter(s);position:absolute;left:0;top:9px;width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font:700 13px Unbounded,sans-serif}
+pre{white-space:pre-wrap;background:var(--sky);border-radius:12px;padding:16px;font:14px/1.6 Inter,sans-serif;margin:10px 0}
+.law{font-size:14px;background:var(--sky);border-left:4px solid var(--gold);padding:10px 14px;border-radius:0 10px 10px 0;margin:10px 0}
+.note{font-size:13px;color:var(--mut)}
+.recs{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 28px}
+.recs li{padding:14px 0 14px 18px;border-left:3px solid var(--gold)}
+.quote{background:var(--blue);color:#fff}
+.quote p{font:500 clamp(20px,2.6vw,30px)/1.35 Unbounded,sans-serif;max-width:30ch}
+details{border-top:1px solid var(--line);padding:12px 0}
+summary{cursor:pointer;font-weight:600;min-height:32px}
+footer{background:var(--deep);color:#cfe6ec;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+@media(max-width:900px){.hero .wrap,.two,.qa{grid-template-columns:minmax(0,1fr)}.fig{min-height:340px}}
+@media(max-width:700px){.chain{grid-template-columns:minmax(0,1fr);gap:10px}.chain::before{left:31px;right:auto;top:10px;bottom:10px;width:3px;height:auto}.chain button{flex-direction:row;text-align:left}.chain .dot{width:56px;height:56px;flex:none}.risk,.lvl,.recs{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){table{font-size:13px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px;border-bottom:1px solid var(--line)}.stack td{display:flow-root;border:0;padding:3px 12px;padding-inline-start:8.5em;text-align:start}.stack td::before{content:attr(data-l);float:inline-start;width:7.5em;margin-inline-start:-7.8em;color:var(--mut);font-weight:500}.cats{grid-template-columns:minmax(0,1fr)}.tl li{grid-template-columns:minmax(0,1fr)}.tl::before,.tl li::after{display:none}.tl li>div{padding-left:0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+<script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
+</head>
+<body>
+<nav><div class="wrap">
+<a class="logo" href="#top"><i></i>QORGAU AI</a>
+<div class="scroll">
+<a href="#about">Жоба</a><a href="#chain">Деректер</a><a href="#law">Заңнама</a><a href="#compare">Салыстыру</a><a href="#control">Бақылау</a><a href="#survey">Сауалнама</a><a href="#model">Модель</a><a href="#passport">Паспорт</a><a href="#qorgau">QORGAU AI</a><a href="#recs">Ұсыныстар</a><a href="#sources">Әдебиеттер</a>
+</div></div></nav>
+
+<header class="hero band" id="top"><div class="wrap">
+<div>
+<span class="tag">Ғылыми жоба · Құқық</span>
+<h1>Цифрлық дәуірдегі құқықтық сауаттылық</h1>
+<p class="lead" style="color:#cfe6ec">Әлеуметтік желілер мен жасанды интеллектіні қауіпсіз пайдаланудың құқықтық негіздері: Қазақстан заңнамасы, халықаралық тәжірибе және «QORGAU AI» цифрлық құқықтық көмек платформасының авторлық үлгісі.</p>
+<div class="btns"><a class="btn g" href="#qorgau">Платформаны сынау</a><a class="btn o" href="#model">Авторлық модель</a></div>
+<div class="facts">
+<div><b>№592</b><span>ЖИ тұжырымдамасы, 24.07.2024</span></div>
+<div><b>17.11.2025</b><span>«Жасанды интеллект туралы» Заң</span></div>
+<div><b>50</b><span>сауалнама респонденті</span></div>
+</div>
+</div>
+<div class="fig" id="triadBox"><svg id="triad" role="img" aria-label="Адам, Алгоритм, Құқық үштағаны"></svg></div>
+</div></header>
+<div class="orn" aria-hidden="true"><svg id="orn"></svg></div>
+
+<section class="band" id="about"><div class="wrap two">
+<div>
+<h2>Жоба не үшін қажет</h2>
+<p><b>Мақсаты</b> – жасанды интеллект пен әлеуметтік желілерді қолдану барысында туындайтын құқықтық мәселелерді қарастыру, Қазақстан Республикасындағы цифрлық кеңістікті реттейтін заңнаманы талдау және азаматтардың құқықтарын қорғау жолдарын ұсыну.</p>
+<p><b>Өзектілігі.</b> Жасанды интеллект білім алуға, еңбек етуге, ақпарат алуға және мемлекеттік қызметтерді пайдалануға елеулі ықпал етуде. Оны бақылаусыз немесе тиісті құқықтық талаптарсыз пайдалану дербес деректердің қорғалуына, жеке өмір құпиялығына, алгоритмдердің әділдігіне, авторлық құқыққа қауіп төндіруі мүмкін.</p>
+<p><b>Ғылыми жаңалығы.</b> ЖИ мен әлеуметтік желілердің адам құқықтарына ықпалы ҚР заңнамасы негізінде кешенді талданып, әлемдік тәжірибе негізінде Қазақстанға бейімделген «QORGAU AI» платформасының авторлық үлгісі әзірленді.</p>
+</div>
+<div>
+<h3>Аннотация</h3>
+<div class="tabs" role="tablist">
+<button role="tab" aria-selected="true" data-t="kk" id="t-kk">Қазақша</button><button role="tab" aria-selected="false" data-t="ru" id="t-ru">Русский</button><button role="tab" aria-selected="false" data-t="en" id="t-en">English</button>
+</div>
+<div class="panel" id="annot"></div>
+</div>
+</div>
+<div class="wrap" style="margin-top:34px">
+<h3>Зерттеу міндеттері</h3>
+<ul class="tasks" id="tasks"></ul>
+</div></section>
+
+<section class="band sky" id="chain"><div class="wrap">
+<h2>Цифрлық із: әр кезеңде құқықтық бақылау керек</h2>
+<p class="lead">Адамның интернеттегі әрекеті деректерге, деректер алгоритмдік шешімге айналады. Кезеңді таңдап, қауіп пен қорғау тетігін көріңіз.</p>
+<div class="chain" id="chainRow"></div>
+<div class="risk" id="chainInfo" aria-live="polite"></div>
+</div></section>
+
+<section class="band" id="law"><div class="wrap two">
+<div>
+<h2>Қазақстан декларациядан нақты реттеуге көшті</h2>
+<p>Заңда ЖИ жүйелерін құру мен пайдалануда адамның құқықтары мен бостандықтарына басымдық беру, әділдік пен теңдік, ашықтық, жауаптылық, деректерді қорғау және қауіпсіздік қағидаттары бекітілген.</p>
+<p>Маңызды норма: ЖИ жүйелерін құруға және пайдалануға қатысатын субъектілер жүйе қызметі мен оның нәтижелері үшін жауапты. «Технология өзі жауап береді» деген түсінік құқықтық тұрғыдан орынсыз.</p>
+<div class="panel" style="border-color:var(--gold)"><b>Негізгі ұстаным:</b> ЖИ адамды алмастыратын құқық субъектісі емес, адамның құқықтары мен заңды мүдделерін сақтай отырып пайдаланылуы тиіс технологиялық құрал.</div>
+</div>
+<ol class="tl" id="tl"></ol>
+</div></section>
+
+<section class="band sky" id="compare"><div class="wrap">
+<h2>Қағидаттар үндес, реттеу тәсілі әртүрлі</h2>
+<div class="tabs" role="tablist">
+<button role="tab" aria-selected="true" data-c="0" id="c0">Қазақстан және халықаралық тәсіл</button><button role="tab" aria-selected="false" data-c="1" id="c1">Қазақстан және Еуропалық Одақ</button>
+</div>
+<div class="tbl"><table class="stack" id="cmp"></table></div>
+<p class="note" style="margin-top:12px">ЕО AI Act 2024 жылғы 1 тамызда күшіне енді: тәуекел жоғарылаған сайын құқықтық талаптар күшейеді.</p>
+</div></section>
+
+<section class="band" id="control"><div class="wrap">
+<h2>Адам бақылауының үш деңгейі</h2>
+<p class="lead">Адам құқықтарына әсер ететін салаларда толық автоматтандыру ерекше сақтықты қажет етеді: адам шешімнің негізін түсінуге және оған қарсылық білдіруге тиіс.</p>
+<div class="lvl" id="lvl"></div>
+<div class="two" style="margin-top:34px">
+<div>
+<h3>Алгоритмдік кемсітушілік қалай пайда болады</h3>
+<p>Жұмысқа қабылдау жүйесі бұрынғы қызметкерлердің деректерімен оқытылса, ал олардың басым бөлігі бір топтан болса, алгоритм сол топты «табысты кандидаттың үлгісі» деп қабылдауы ықтимал. Мәселе адамның ниетінде емес, деректердегі бұрыннан қалыптасқан үлгілердің қайталануында.</p>
+<p>Сондықтан маңызды шешім қабылдайтын ЖИ жүйесінің нәтижесіне алгоритмдік әділдік тұрғысынан міндетті бағалау жүргізу ұсынылады. Бұл әсіресе жұмысқа қабылдау, білім беру, кредит, әлеуметтік көмек, медицина және мемлекеттік басқаруда маңызды.</p>
+</div>
+<div class="panel"><h3>Әділдікті бағалау тізімі</h3><div id="fair"></div><p class="note" id="fairN"></p></div>
+</div>
+</div></section>
+
+<section class="band sky" id="survey"><div class="wrap two">
+<div>
+<h2>Сауалнама: «Жасанды интеллект және адам құқықтары: қауіп пе, мүмкіндік пе?»</h2>
+<p>Сауалнамаға әртүрлі жастағы респонденттер қатысты. Сұрақтар ЖИ-ді қолдану тәжірибесі, жеке деректердің қауіпсіздігі, ақпараттың құпиялылығы, алгоритмдердің әділдігі және адамның шешім қабылдау құқығы туралы болды.</p>
+<p class="big">50</p><p class="note">респондент · сауалнама, салыстырмалы талдау және жағдайлық зерттеу</p>
+</div>
+<div class="cards">
+<div class="panel"><h3>Әділдікке күмән</h3><p>Алгоритмдік шешімдердің әділдігіне қатысты қоғамда күмән бар. Адам тағдырына әсер ететін шешімдерде тек алгоритмге сүйену қауіпті болуы мүмкін.</p></div>
+<div class="panel"><h3>Түсіндіру құқығы</h3><p>Ең жоғары көрсеткіштердің бірі: респонденттердің басым көпшілігі алгоритм шешімін түсіндіруді талап етуге және қайта қаратуға мүмкіндік болуы керек деп санайды.</p></div>
+<div class="panel"><h3>Адам мен алгоритм</h3><p>Адам жағдайдың эмоционалдық, моральдық және әлеуметтік қырларын ескереді, ал алгоритм деректер мен модельдерге сүйенеді.</p></div>
+<div class="panel"><h3>Сауаттылық олқылығы</h3><p>ЖИ мүмкіндіктеріне қызығушылық жоғары, бірақ оның құқықтық салдары туралы түсінік жеткілікті қалыптаспаған.</p></div>
+</div>
+</div></section>
+
+<section class="band" id="model"><div class="wrap two">
+<div>
+<h2>Авторлық модель: «Адам – Алгоритм – Құқық» үштағаны</h2>
+<p>ЖИ-ді қолданудағы құқықтық қатынастар үш элементтің өзара байланысы арқылы бағаланады. Біреуі әлсіресе, адам құқықтарын қорғау деңгейі де төмендейді. Сырғытпаларды жылжытып көріңіз.</p>
+<div id="sliders"></div>
+</div>
+<div class="panel" style="display:flex;flex-direction:column;justify-content:center">
+<p class="note" style="margin:0">Адам құқықтарын қорғау деңгейі</p>
+<p class="big" id="pScore" style="margin:6px 0">0%</p>
+<div class="meter" style="background:var(--line)"><i id="pBar"></i></div>
+<p id="pTxt" style="margin-top:10px"></p>
+<p class="note">Деңгей ең әлсіз элементпен шектеледі: үштағанның бір аяғы қысқа болса, ол тұрақты тұрмайды.</p>
+</div>
+</div></section>
+
+<section class="band sky" id="passport"><div class="wrap">
+<h2>Алгоритмдік құқықтық қауіпсіздік паспорты</h2>
+<p class="lead">ЖИ жүйесін енгізбес бұрын оның адам құқықтарына ықтимал әсерін алдын ала бағалайтын құрал. Деректерді өзгертсеңіз, паспорт бірден жаңарады.</p>
+<div class="two">
+<form class="panel" id="pf" autocomplete="off">
+<label for="p-name">Жүйенің атауы</label><input id="p-name" value="Мектепке қабылдау көмекшісі">
+<label for="p-org">Пайдаланушы ұйым</label><input id="p-org" value="Білім беру ұйымы">
+<label for="p-area">Шешім қабылдау саласы</label>
+<select id="p-area"><option value="2">Білім беру</option><option value="2">Жұмысқа қабылдау</option><option value="2">Кредит беру</option><option value="2">Медицина</option><option value="2">Әлеуметтік көмек</option><option value="1">Мемлекеттік қызмет кеңесшісі</option><option value="0">Ақпараттық чат-бот</option></select>
+<label for="p-data">Пайдаланатын деректер</label><input id="p-data" value="Аты-жөні, бағалары, мекенжайы">
+<label for="p-resp">Жауапты тұлға</label><input id="p-resp" value="Цифрландыру бөлімінің басшысы">
+<label class="chk"><input type="checkbox" id="p-sens" checked>Жеке немесе сезімтал деректер өңделеді</label>
+<label class="chk"><input type="checkbox" id="p-human">Шешімді адам қайта қарайды</label>
+<label class="chk"><input type="checkbox" id="p-appeal" checked>Шағымдану арнасы бар</label>
+<label class="chk"><input type="checkbox" id="p-audit">Деректер теңгерімділігі тексерілген</label>
+</form>
+<div class="pass" id="pass" aria-live="polite"></div>
+</div>
+<p class="note" style="margin-top:10px">Мысал ретінде толтырылған. Бағалау логикасы – жобаның авторлық ұсынысы, ресми әдістеме емес.</p>
+</div></section>
+
+<section class="band" id="qorgau"><div class="wrap">
+<h2>«QORGAU AI» цифрлық құқықтық көмек платформасы</h2>
+<p class="lead">Прототип: мәселені таңдаңыз, заң не дейтінін біліңіз, дәлелдерді сақтаңыз және шағым үлгісін дайындаңыз. Платформа мемлекеттік органның, адвокаттың немесе соттың қызметін алмастырмайды.</p>
+<div class="qa">
+<div>
+<h3>1. Мәселені анықтау</h3>
+<div class="cats" id="cats"></div>
+<h3 style="margin-top:22px">4. Шағым мәліметтері</h3>
+<form id="qf" autocomplete="off">
+<label for="q-name">Аты-жөні</label><input id="q-name" value="Әлиева Аружан">
+<label for="q-date">Оқиға күні</label><input id="q-date" type="date" value="2026-11-18">
+<label for="q-link">Жарияланым сілтемесі</label><input id="q-link" value="https://instagram.com/p/example">
+<label for="q-desc">Не болды?</label><textarea id="q-desc">Менің фотосуретім рұқсатымсыз жалған парақшада жарияланып, астына қорлайтын пікірлер жазылған.</textarea>
+</form>
+</div>
+<div class="panel" id="qout" aria-live="polite"></div>
+</div>
+<p class="note" style="margin-top:12px">Мысал ретінде толтырылған. Заңдардың қолданыстағы редакциясын «Әділет» ақпараттық-құқықтық жүйесінен тексеріңіз.</p>
+</div></section>
+
+<section class="band sky" id="recs"><div class="wrap">
+<h2>Зерттеу негізінде әзірленген ұсыныстар</h2>
+<ul class="recs" id="recList"></ul>
+<h3 style="margin-top:36px">Күтілетін нәтижелер</h3>
+<ul class="tasks" id="results"></ul>
+</div></section>
+
+<section class="band quote"><div class="wrap">
+<p>Басты сұрақ «жасанды интеллект адамды алмастыра ма?» емес, «ЖИ дамыған қоғамда адамның құқығын қалай сақтаймыз?» болуы тиіс.</p>
+<span style="color:#cfe6ec">Технология адамға қызмет етуі керек, ал құқық сол қызметтің шекарасын айқындайды.</span>
+</div></section>
+
+<section class="band" id="sources"><div class="wrap">
+<h2>Пайдаланылған әдебиеттер</h2>
+<div id="lit"></div>
+</div></section>
+
+<footer class="band"><div class="wrap">
+<span><b style="color:#fff">QORGAU AI</b> · Цифрлық дәуірдегі құқықтық сауаттылық</span>
+<span>Ғылыми жетекші: Альфия Курманжановна</span>
+</div></footer>
+
+<script>
+{
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+const ANN={
+kk:`<p><b>Мақсаты</b> – жасанды интеллект пен әлеуметтік желілерді қолдану барысында туындайтын құқықтық мәселелерді қарастыру, ҚР цифрлық кеңістігін реттейтін заңнаманы талдау және азаматтардың құқықтарын қорғау жолдарын ұсыну.</p><p>Цифрлық құқықтық сауаттылық ұғымы түсіндіріліп, жеке деректерді қорғау, авторлық құқық, кибербуллинг және жалған ақпарат мәселелері талданды, отандық және халықаралық тәжірибе зерделенді. Оқушылардың цифрлық-құқықтық сауаттылығын анықтауға сауалнама жүргізіліп, практикалық ұсыныстар әзірленді.</p>`,
+ru:`<p><b>Цель</b> – изучение влияния технологий искусственного интеллекта на права и свободы человека, анализ современного состояния правового регулирования ИИ в Республике Казахстан и определение правовых механизмов эффективной защиты прав человека.</p><p>Сохранение баланса между развитием технологических инноваций и защитой конституционных прав и свобод человека является важной правовой задачей для современного Казахстана. В результате исследования систематизированы основные проблемы правового регулирования и представлены конкретные предложения по совершенствованию механизмов защиты прав человека.</p>`,
+en:`<p><b>Aim</b> – to study the impact of artificial intelligence technologies on human rights and freedoms, analyze the current state of legal regulation of AI in the Republic of Kazakhstan, and identify legal mechanisms for effectively protecting human rights.</p><p>The study examines the impact of AI on privacy, personal data protection, equality, non-discrimination, access to information, labor rights and intellectual property. As a result, the main issues of legal regulation in Kazakhstan are systematized and specific recommendations for improving human rights protection are proposed.</p>`};
+const setAnn=k=>{$('#annot').innerHTML=ANN[k];document.querySelectorAll('[data-t]').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===k))};
+document.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>setAnn(b.dataset.t));setAnn('kk');
+
+$('#tasks').innerHTML=['ЖИ ұғымының құқықтық және әлеуметтік мәнін ашу','ЖИ-дің адам құқықтарына ықпал ету ерекшеліктерін анықтау','Негізгі құқықтық және этикалық мәселелерді талдау','ҚР қолданыстағы заңнамасын зерделеу','Дербес деректер, алгоритм ашықтығы, кемсітпеу және жауапкершілік мәселелерін қарастыру','Халықаралық тәжірибені зерттеу','Қазақстандағы реттеудің проблемалық тұстарын анықтау','ЖИ-ді қауіпсіз әрі жауапты пайдалану ұсыныстарын әзірлеу'].map(t=>`<li>${t}</li>`).join('');
+
+const CH=[['Адам','Азамат цифрлық сервисті пайдаланады','Деректерінің қандай мақсатта қолданылатынын білмеуі','Келісім, ақпараттандыру, цифрлық сауаттылық'],
+['Цифрлық әрекет','Іздеу, әлеуметтік желі, онлайн сатып алу, геолокация','Адамның өзі байқамаған мінез-құлқы анықталуы','Жеке өмірге қол сұқпаушылық (Конституция, 18-бап)'],
+['Деректер','Мәліметтер жинақталып, сақталады','Деректер дұрыс жиналмаса, жеке өмірге қауіп төнеді','«Дербес деректер және оларды қорғау туралы» Заң'],
+['Талдау','Алгоритм деректерді өңдейді','Деректер бұрмаланса, алгоритм қате нәтиже шығарады','Деректер сапасы мен теңгерімділігін тексеру, аудит'],
+['Болжам','Жүйе мінез-құлықты болжайды','Біржақтылық пен алгоритмдік кемсітушілік','Әділдік пен теңдік қағидаты, әсерді бағалау'],
+['Шешім','Өтініш қабылданады немесе қабылданбайды','Шешім түсіндірілмесе, азамат құқығын қорғай алмайды','Түсіндіру талап ету және адам тарапынан қайта қарату']];
+const chainSel=i=>{document.querySelectorAll('#chainRow button').forEach((b,j)=>b.setAttribute('aria-pressed',i===j));const c=CH[i];$('#chainInfo').innerHTML=`<div class="bad"><b>${c[0]}: қауіп</b>${c[2]}. <span class="note">${c[1]}.</span></div><div class="ok"><b>Құқықтық бақылау</b>${c[3]}</div>`};
+$('#chainRow').innerHTML=CH.map((c,i)=>`<button type="button" id="ch${i}" aria-pressed="false"><span class="dot">${i+1}</span>${c[0]}</button>`).join('');
+document.querySelectorAll('#chainRow button').forEach((b,i)=>b.onclick=()=>chainSel(i));chainSel(5);
+
+$('#tl').innerHTML=[['2019','OECD ЖИ қағидаттары','Адам құқықтарын құрметтеу, ашықтық, түсіндірмелілік, қауіпсіздік, жауапкершілік (2024 жылы жаңартылған).'],['2021','ЮНЕСКО ЖИ этикасы ұсынымы','Адам қадір-қасиеті, әділдік, адам бақылауы; деректерді ЖИ жүйесінің бүкіл өмірлік циклінде қорғау.'],['01.08.2024','ЕО AI Act күшіне енді','Тәуекелге негізделген модель: жоғары тәуекелді жүйелерге қатаң талаптар, кейбір қолдануларға тыйым.'],['24.07.2024','ҚР ЖИ тұжырымдамасы','Үкіметтің №592 қаулысы: 2024–2029 жылдарға арналған ЖИ-ді дамыту тұжырымдамасы.'],['2024','Еуропа Кеңесінің Негіздемелік конвенциясы','ЖИ және адам құқықтары, демократия, құқық үстемдігі (CETS №225, Вильнюс).'],['17.11.2025','«Жасанды интеллект туралы» ҚР Заңы','ЖИ саласын арнайы реттейтін ұлттық құқықтық негіз қалыптасты.']].map(r=>`<li><time>${r[0]}</time><div><b>${r[1]}</b><br><span class="note" style="font-size:14px">${r[2]}</span></div></li>`).join('');
+
+const CMP=[[['Құқықтық қағидат','Қазақстандық тәсіл','Халықаралық тәсіл'],['Адамның басымдығы','Адамның өмірі, құқықтары мен бостандықтары жоғары құндылық ретінде танылады','Адам қадір-қасиеті мен құқықтары ЖИ реттеудің негізі'],['Ашықтық','ЖИ жүйелерінің ашықтығы мен түсініктілігі көзделеді','Алгоритмдердің ашықтығы мен түсіндірмелілігі талап етіледі'],['Деректерді қорғау','Деректер мен құпиялылықты қорғау қағидаты бекітілген','Жеке өмір мен дербес деректерді қорғау негізгі құқық'],['Жауапкершілік','ЖИ жүйелерінің субъектілері заңда белгіленген жауаптылықта болады','Әзірлеуші мен пайдаланушының жауапкершілігі сараланады'],['Қауіпсіздік','ЖИ жүйелерінің қауіпсіздігі мен қорғалуы талап етіледі','ЖИ тәуекелдерін алдын ала бағалау қолданылады']],
+[['Салыстыру өлшемі','Қазақстан','Еуропалық Одақ'],['Негізгі тәсіл','Қағидаттарға және ұлттық құқықтық жүйеге сүйену','Тәуекелге негізделген кешенді модель'],['Адам құқықтары','Жоғары құқықтық құндылық ретінде бекітіледі','Негізгі құқықтарға әсері арнайы бағаланады'],['Ашықтық','Заңның негізгі қағидаттарының бірі','Жоғары тәуекелді жүйелер үшін нақты талаптар'],['Адам бақылауы','Адамның шешім қабылдаудағы басымдығы бекітілген','Жоғары тәуекелді жүйелер үшін міндетті элемент'],['Тыйым салынған әрекеттер','Заңда белгіленген шектеулер бар','Қолайсыз тәуекелді кейбір қолдануларға тыйым'],['Аудит','ЖИ жүйелерінің аудиті қарастырылған','Сәйкестікті бағалау және бақылау механизмдері дамыған']]];
+const setCmp=k=>{const t=CMP[k];$('#cmp').innerHTML=`<thead><tr>${t[0].map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${t.slice(1).map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody>`;document.querySelectorAll('[data-c]').forEach(b=>b.setAttribute('aria-selected',b.dataset.c==k))};
+document.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>setCmp(+b.dataset.c));setCmp(0);
+
+$('#lvl').innerHTML=[['1-деңгей','Кеңесші ЖИ','ЖИ ақпарат немесе ұсыныс береді, соңғы шешімді адам қабылдайды.',33],['2-деңгей','Бірлескен шешім','Алгоритм бірнеше нұсқа ұсынады, адам оларды талдап, шешім қабылдайды.',66],['3-деңгей','Автоматты шешім','Жүйе шешімді адамның тікелей араласуынсыз шығарады. Ерекше сақтық қажет.',100]].map(l=>`<div><span class="note">${l[0]}</span><h3 style="margin:4px 0 0">${l[1]}</h3><div class="m"><i style="width:${l[3]}%"></i></div><p style="margin:0;font-size:15px">${l[2]}</p><span class="note">Тәуекел</span></div>`).join('');
+
+const FAIR=['Қолданылған деректердің сапасы','Деректердің теңгерімділігі','Нәтиженің әртүрлі әлеуметтік топтарға әсері','Қате шешімдердің ықтималдығы','Адамның шешімді қайта қарау мүмкіндігі','Азаматтың шағымдану құқығы'];
+$('#fair').innerHTML=FAIR.map((f,i)=>`<label class="chk"><input type="checkbox" id="f${i}" ${i<3?'checked':''}>${f}</label>`).join('');
+const fairUp=()=>{const n=FAIR.filter((_,i)=>$('#f'+i).checked).length;$('#fairN').textContent=n===6?'Барлық 6 өлшем ескерілді: жүйені енгізуге болады.':`${n}/6 өлшем ескерілді. Қалғандарын тексермей енгізу адам құқықтарына қауіп төндіреді.`};
+$('#fair').onchange=fairUp;fairUp();
+
+const SL=[['Адам','құқықтар, қауіпсіздік, жеке деректер',80],['Алгоритм','ашықтық, дәлдік, бейтараптық',60],['Құқық','нормалар, бақылау, жауапкершілік',70]];
+$('#sliders').innerHTML=SL.map((s,i)=>`<label for="s${i}">${s[0]} <span class="note" style="font-weight:400">· ${s[1]}</span> <output id="o${i}" style="float:right">${s[2]}</output></label><input type="range" id="s${i}" min="0" max="100" value="${s[2]}" style="padding:0;accent-color:var(--blue);height:32px">`).join('');
+const triV=[80,60,70];
+const pUp=()=>{SL.forEach((_,i)=>{triV[i]=+$('#s'+i).value;$('#o'+i).textContent=triV[i]});const mn=Math.min(...triV),av=triV.reduce((a,b)=>a+b)/3,sc=Math.round(mn*.6+av*.4);$('#pScore').textContent=sc+'%';const col=sc<45?'#d64933':sc<70?'#e9ad0c':'#2fa36b';$('#pBar').style.cssText=`width:${sc}%;background:${col}`;const w=SL[triV.indexOf(mn)][0];$('#pTxt').innerHTML=sc>=70?'Үш элемент теңгерімді: құқықтар сенімді қорғалған.':`Әлсіз буын – <b>${w}</b>. Осы элементті күшейтпейінше, қорғау деңгейі көтерілмейді.`;drawTri()};
+$('#sliders').oninput=pUp;
+
+const passUp=()=>{const a=$('#p-area'),ar=+a.value,sens=$('#p-sens').checked,hum=$('#p-human').checked,ap=$('#p-appeal').checked,au=$('#p-audit').checked;
+let r=ar*2+(sens?2:0)+(hum?0:3)+(ap?0:2)+(au?0:1);const pct=Math.round(r/12*100);const lv=pct>=60?['Жоғары','#d64933']:pct>=30?['Орташа','#e9ad0c']:['Төмен','#2fa36b'];
+const yn=v=>v?'Иә':'Жоқ';const todo=[!hum&&'адам тарапынан қайта қарау енгізу',!ap&&'шағымдану арнасын ашу',!au&&'деректер теңгерімділігін тексеру',sens&&'дербес деректер талаптарын сақтау'].filter(Boolean);
+$('#pass').innerHTML=`<svg class="seal" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" fill="none" stroke="#e9ad0c" stroke-width="2" stroke-dasharray="4 3"/><circle cx="50" cy="50" r="32" fill="#e9ad0c22" stroke="#e9ad0c"/><path d="M50 28v44M36 40h28M36 40l-7 14h14zM64 40l-7 14h14z" stroke="#e9ad0c" stroke-width="2.4" fill="none" stroke-linejoin="round"/></svg>
+<h3>АЛГОРИТМДІК ҚҰҚЫҚТЫҚ ҚАУІПСІЗДІК ПАСПОРТЫ</h3><span style="font-size:13px;color:#9fc6d1">№ QA-${String(esc($('#p-name').value).length*37+ar*101).padStart(5,'0')}</span>
+<dl><dt>Жүйе</dt><dd>${esc($('#p-name').value)||'—'}</dd><dt>Ұйым</dt><dd>${esc($('#p-org').value)||'—'}</dd><dt>Сала</dt><dd>${a.options[a.selectedIndex].text}</dd><dt>Деректер</dt><dd>${esc($('#p-data').value)||'—'}</dd><dt>Адам бақылауы</dt><dd>${yn(hum)}</dd><dt>Шағымдану</dt><dd>${yn(ap)}</dd><dt>Жауапты тұлға</dt><dd>${esc($('#p-resp').value)||'—'}</dd></dl>
+<div style="display:flex;justify-content:space-between;font-size:14px"><span>Кемсітушілік және құқықтық тәуекел</span><b style="color:${lv[1]}">${lv[0]}</b></div><div class="meter"><i style="width:${Math.max(pct,4)}%;background:${lv[1]}"></i></div>
+<p style="font-size:14px;margin:12px 0 0;color:#cfe6ec">${todo.length?'Енгізу алдында: '+todo.join('; ')+'.':'Барлық негізгі талаптар орындалған.'}</p>`};
+$('#pf').addEventListener('input',passUp);$('#pf').addEventListener('change',passUp);$('#pf').onsubmit=e=>e.preventDefault();passUp();
+
+const Q=[
+{n:'Фотосуретті рұқсатсыз пайдалану',law:'ҚР Конституциясы, 18-бап – жеке өмірге қол сұқпаушылық, ар-намыс пен қадір-қасиетті қорғау. ҚР Азаматтық кодексі, 145-бап – азаматтың өз бейнесіне құқығы.',ev:['Жарияланым сілтемесін көшіріп алыңыз','Аккаунт атауы мен жарияланған күн көрінетін скриншот жасаңыз','Пікірлер мен бөлісулерді сақтаңыз'],go:['Платформаның «Шағымдану / Report» қызметі – суретті жою','Сот – азаматтық-құқықтық қорғау және моральдық зиян','eOtinish.kz – мемлекеттік органға онлайн өтініш'],ask:'фотосуретімді жоюды және құқық бұзушыға тиісті шара қолдануды'},
+{n:'Жалған ақпарат, дипфейк',law:'ҚР Конституциясы, 18-бап – ар-намыс пен абыройды қорғау. «Онлайн-платформалар және онлайн-жарнама туралы» Заң – платформалардың пайдаланушылар алдындағы міндеттері.',ev:['Жалған материалдың сілтемесі мен көшірмесін сақтаңыз','Шынайы ақпаратты дәлелдейтін құжаттарды жинаңыз','Таралу ауқымын (қаралым, бөлісу) тіркеңіз'],go:['Платформаға жалған ақпарат туралы шағым','Полиция – 102 (ар-намысқа нұқсан келтірсе)','Сот – ар-намысты қорғау туралы талап'],ask:'жалған материалды жоюды және теріске шығаруды'},
+{n:'Жеке деректердің жариялануы',law:'«Дербес деректер және оларды қорғау туралы» ҚР Заңы – дербес деректерді жинау, өңдеу және тарату тек заңды негізде, субъектінің келісімімен.',ev:['Жарияланған деректер көрінетін скриншот','Сілтеме мен жарияланған күн','Деректерді кім таратқаны туралы мәлімет'],go:['Платформаға деректерді жою туралы өтініш','Дербес деректерді қорғау жөніндегі уәкілетті орган (eOtinish.kz арқылы)','Полиция – 102 (жеке өмірге қол сұғу белгілері болса)'],ask:'дербес деректерімді жоюды және заң бұзушылықты тексеруді'},
+{n:'Интернеттегі қорлау, кибербуллинг',law:'ҚР Конституциясы, 18-бап – қадір-қасиетті қорғау. Мән-жайларға қарай ҚР Әкімшілік құқық бұзушылық және Қылмыстық кодекстерінің тиісті нормалары қолданылады.',ev:['Хабарламалар мен пікірлерді өшірмей скриншот жасаңыз','Жіберушінің аккаунт сілтемесін сақтаңыз','Ата-анаға немесе сенімді ересекке айтыңыз'],go:['Платформада бұғаттау және шағым','111 – балалар мен жасөспірімдерге арналған сенім телефоны','Полиция – 102 (қауіп төнсе)'],ask:'қорлайтын материалдарды жоюды және кінәлі тұлғаға шара қолдануды'},
+{n:'Авторлық құқық бұзылуы',law:'«Авторлық құқық және сабақтас құқықтар туралы» ҚР Заңы – авторлардың мүліктік және мүліктік емес құқықтары; туындыны келісімсіз пайдалануға тыйым.',ev:['Түпнұсқа туындының жасалған күнін дәлелдейтін файлдар','Рұқсатсыз пайдаланылған жердің сілтемесі мен скриншоты','Авторлықты растайтын жобалар, эскиздер'],go:['Платформаның авторлық құқық шағымы','Құқық бұзушыға талап-арыз (претензия)','Сот – зиянды өтеу'],ask:'туындымды рұқсатсыз пайдалануды тоқтатуды'},
+{n:'Интернет-алаяқтық',law:'ҚР Қылмыстық кодексі – нақты мән-жайларға қарай алаяқтыққа қатысты нормалар. Жеке деректер мен төлем мәліметтерін ешкімге бермеу.',ev:['Хат алмасу мен аударым түбіртектерін сақтаңыз','Алаяқтың телефоны, аккаунты, сілтемесі','Банкке дереу хабарласып, операцияны бұғаттаңыз'],go:['Банктің қолдау қызметі – дереу','Полиция – 102','Платформаға алаяқ аккаунт туралы шағым'],ask:'алаяқтық фактісін тіркеп, тексеру жүргізуді'}];
+let qi=0;
+$('#cats').innerHTML=Q.map((q,i)=>`<button type="button" id="q${i}" aria-pressed="false">${q.n}</button>`).join('');
+const qUp=()=>{const q=Q[qi];document.querySelectorAll('#cats button').forEach((b,j)=>b.setAttribute('aria-pressed',j===qi));
+const d=$('#q-date').value?$('#q-date').value.split('-').reverse().join('.'):'—';
+const tpl=`ӨТІНІШ\n\nМен, ${$('#q-name').value||'—'}, ${d} күні мына жағдайға тап болдым: ${$('#q-desc').value||'—'}\n\nЖарияланым сілтемесі: ${$('#q-link').value||'—'}\nМәселе түрі: ${q.n}.\n\nНегіз: ${q.law.split(' – ')[0]}.\n\nСізден ${q.ask} сұраймын. Дәлелдер (скриншоттар, сілтемелер) қоса беріледі.\n\nКүні: ____________   Қолы: ____________`;
+$('#qout').innerHTML=`<h3>2. Заң не дейді?</h3><div class="law">${q.law}</div><h3 style="margin-top:18px">3. Дәлелдерді сақтау</h3><ol class="steps">${q.ev.map(e=>`<li>${e}</li>`).join('')}</ol><h3 style="margin-top:18px">5. Қайда жүгінемін?</h3><ol class="steps">${q.go.map(e=>`<li>${e}</li>`).join('')}</ol><h3 style="margin-top:18px">Шағым үлгісі</h3><pre id="tpl">${esc(tpl)}</pre><button type="button" class="btn g" id="copy">Мәтінді көшіру</button> <span class="note" id="cpn"></span><p class="note" style="margin-top:14px">6. Нәтижені бақылау: өтініштің тіркеу нөмірі мен жауап алу мерзімін сақтаңыз.</p>`;
+$('#copy').onclick=async()=>{try{await navigator.clipboard.writeText(tpl);$('#cpn').textContent='Көшірілді'}catch(e){$('#cpn').textContent='Мәтінді белгілеп, қолмен көшіріңіз'}}};
+document.querySelectorAll('#cats button').forEach((b,i)=>b.onclick=()=>{qi=i;qUp()});$('#qf').addEventListener('input',qUp);$('#qf').onsubmit=e=>e.preventDefault();qUp();
+
+$('#recList').innerHTML=['«Адам құқықтары бірінші» қағидатын ЖИ-ді әзірлеу мен қолданудың негізгі принципі ретінде бекіту','ЖИ жүйелерін тәуекел деңгейіне қарай жіктеу (төмен, орташа, жоғары) және адам өміріне, денсаулығына, біліміне, еңбегіне ықпал ететін жүйелерге күшейтілген бақылау енгізу','Мемлекеттік және жеке ұйымдарда «Алгоритмдік құқықтық қауіпсіздік паспортын» енгізуді қарастыру','Азаматтардың алгоритмдік шешімге қатысты түсіндіруді талап ету және адам тарапынан қайта қарату құқығын қамтамасыз ету','Оқушылар мен жастарға «AI және құқық» цифрлық сауаттылық курстарын енгізу','ЖИ қолданатын ұйымдарда адам құқықтарына әсерді бағалау рәсімін қалыптастыру','Алгоритмдік қателік немесе құқық бұзылған жағдайда жауапты тұлғаны анықтайтын нақты механизм құру','Реттеуді халықаралық тәжірибемен салыстыра отырып, ұлттық құқықтық ерекшеліктерге бейімдеп дамыту'].map(r=>`<li>${r}</li>`).join('');
+$('#results').innerHTML=['ЖИ-ге қатысты құқықтық мәселелер мен әлемдік тәжірибе жүйеленеді','ҚР цифрлық құқықтарды қорғау нормалары талданады','Құқық бұзылған жағдайда әрекет ету алгоритмі әзірленеді','Сауалнама негізінде оқушылардың цифрлық-құқықтық сауаттылық деңгейі анықталады','«QORGAU AI» платформасының авторлық прототипі әзірленеді','Оқушылар мен жастарға практикалық ұсыныстар беріледі'].map(r=>`<li>${r}</li>`).join('');
+
+const LIT=[['Нормативтік-құқықтық актілер',['Қазақстан Республикасының Конституциясы. – Алматы: Жеті жарғы, 2024.','Қазақстан Республикасының «Жасанды интеллект туралы» Заңы. – 2025. – «Әділет» ақпараттық-құқықтық жүйесі.','Қазақстан Республикасының «Дербес деректер және оларды қорғау туралы» Заңы. – 2013 жылғы 21 мамырдағы №94-V Заң.','Қазақстан Республикасының «Ақпараттандыру туралы» Заңы. – 2015 жылғы 24 қарашадағы №418-V ҚРЗ.','Қазақстан Республикасының «Авторлық құқық және сабақтас құқықтар туралы» Заңы. – 1996 жылғы 10 маусымдағы №6-I ҚР Заңы.','Қазақстан Республикасының Еңбек кодексі. – 2015 жылғы 23 қарашадағы №414-V ҚРЗ.']],['Халықаралық құжаттар мен ұсынымдар',['UNESCO. Recommendation on the Ethics of Artificial Intelligence. – Paris: UNESCO, 2022.','OECD. Recommendation of the Council on Artificial Intelligence: OECD AI Principles. – Paris: OECD, 2019; updated 2024.','OECD. What are the OECD Principles on AI? – OECD Observer, 2019.','Council of Europe. Framework Convention on Artificial Intelligence and Human Rights, Democracy and the Rule of Law (CETS No. 225). – Vilnius, 2024.','Council of Europe. Artificial Intelligence, Human Rights, Democracy and the Rule of Law: A Primer. – Strasbourg: Council of Europe, 2021.','United Nations. Universal Declaration of Human Rights. – New York: United Nations, 1948.']],['Ғылыми және теориялық әдебиеттер',['Russell S., Norvig P. Artificial Intelligence: A Modern Approach. – 4th ed. – Pearson, 2021.','Floridi L. The Ethics of Artificial Intelligence: Principles, Challenges, and Opportunities. – Oxford: Oxford University Press, 2023.']]];
+let k=0;$('#lit').innerHTML=LIT.map((g,i)=>`<details ${i===0?'open':''}><summary>${g[0]} (${g[1].length})</summary><ol start="${(k+=g[1].length)-g[1].length+1}">${g[1].map(x=>`<li style="margin:6px 0">${x}</li>`).join('')}</ol></details>`).join('');
+
+const orn=$('#orn');const drawOrn=()=>{const W=orn.clientWidth,n=Math.ceil(W/44)+1;let p='';for(let i=0;i<n;i++){const x=i*44;p+=`<path d="M${x+22} 18c0-8-7-12-12-8s-1 10 3 7M${x+22} 18c0-8 7-12 12-8s1 10-3 7" fill="none" stroke="#e9ad0c" stroke-width="1.8" stroke-linecap="round"/>`}orn.innerHTML=`<line x1="0" y1="20" x2="${W}" y2="20" stroke="#e9ad0c55"/>${p}`};
+const roO=new ResizeObserver(drawOrn);roO.observe(orn);
+
+const tri=$('#triad');let tokT=0;
+function drawTri(){const W=tri.clientWidth,H=tri.clientHeight;if(!W)return;const sm=W<420,r=sm?40:Math.min(56,W/9);const cx=W/2,top=r+18,bot=H-r-46,half=Math.min(W/2-r-14,(bot-top)*.62);
+const P=[[cx,top],[cx-half,bot],[cx+half,bot]];const names=['Адам','Алгоритм','Құқық'];const subs=['құқықтар, деректер','ашықтық, бейтараптық','нормалар, жауапкершілік'];
+const ico=[`<circle cx="0" cy="-10" r="9"/><path d="M-16 18c0-14 7-19 16-19s16 5 16 19z"/>`,`<rect x="-15" y="-15" width="30" height="30" rx="5" fill="none" stroke-width="3" stroke="currentColor"/><rect x="-6" y="-6" width="12" height="12"/><path d="M-9 -15v-6M0 -15v-6M9 -15v-6M-9 15v6M0 15v6M9 15v6M-15 -9h-6M-15 0h-6M-15 9h-6M15 -9h6M15 0h6M15 9h6" stroke="currentColor" stroke-width="3"/>`,`<path d="M0 -20v36M-16 -10h32M-16 -10l-8 15h16zM16 -10l-8 15h16zM-10 18h20" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>`];
+let s=`<defs><radialGradient id="gl" cx="50%" cy="40%"><stop offset="0" stop-color="#1b8fae"/><stop offset="1" stop-color="#0a5a73"/></radialGradient></defs>`;
+s+=`<circle cx="${cx}" cy="${(top+2*bot)/3}" r="${half*.9}" fill="#ffffff08" stroke="#e9ad0c33" stroke-dasharray="3 6"/>`;
+[[0,1],[1,2],[2,0]].forEach(([a,b])=>{const w=2+Math.min(triV[a],triV[b])/14;s+=`<line x1="${P[a][0]}" y1="${P[a][1]}" x2="${P[b][0]}" y2="${P[b][1]}" stroke="#e9ad0c" stroke-opacity="${.3+Math.min(triV[a],triV[b])/150}" stroke-width="${w}" stroke-linecap="round"/>`});
+const cy=(top+2*bot)/3;s+=`<text x="${cx}" y="${cy-4}" text-anchor="middle" fill="#fff" font-family="Unbounded,sans-serif" font-size="${sm?12:14}" font-weight="700">Цифрлық</text><text x="${cx}" y="${cy+14}" text-anchor="middle" fill="#fff" font-family="Unbounded,sans-serif" font-size="${sm?12:14}" font-weight="700">қауіпсіздік</text>`;
+P.forEach((p,i)=>{const sc=r/40;s+=`<ellipse cx="${p[0]}" cy="${p[1]+r*.92}" rx="${r*.8}" ry="${r*.16}" fill="#00000040"/><circle cx="${p[0]}" cy="${p[1]}" r="${r}" fill="url(#gl)" stroke="#e9ad0c" stroke-width="3"/><circle cx="${p[0]}" cy="${p[1]}" r="${r-8}" fill="none" stroke="#ffffff30"/><g transform="translate(${p[0]},${p[1]}) scale(${sc*.95})" fill="#fff" color="#fff">${ico[i]}</g>`;
+const ly=i===0?p[1]+r+0:p[1]+r+22;const lx=p[0];if(i===0){s+=`<text x="${lx+r+12}" y="${p[1]-4}" fill="#fff" font-family="Unbounded,sans-serif" font-size="15" font-weight="700">${names[i]}</text><text x="${lx+r+12}" y="${p[1]+16}" fill="#9fd3e2" font-size="13">${sm?'':subs[i]}</text>`}else{s+=`<text x="${lx}" y="${ly}" text-anchor="middle" fill="#fff" font-family="Unbounded,sans-serif" font-size="15" font-weight="700">${names[i]}</text>${sm?'':`<text x="${lx}" y="${ly+19}" text-anchor="middle" fill="#9fd3e2" font-size="13">${subs[i]}</text>`}`}});
+s+=`<circle id="tok" r="7" fill="#e9ad0c" stroke="#063847" stroke-width="3"/>`;tri.innerHTML=s;tri._P=P;}
+const roT=new ResizeObserver(drawTri);roT.observe(tri);
+const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const tick=()=>{const P=tri._P,t=document.getElementById('tok');if(P&&t){tokT=(tokT+.0035)%3;const i=Math.floor(tokT),f=tokT-i,a=P[i],b=P[(i+1)%3];t.setAttribute('cx',a[0]+(b[0]-a[0])*f);t.setAttribute('cy',a[1]+(b[1]-a[1])*f)}if(!still)requestAnimationFrame(tick)};
+pUp();tick();
+}
+</script>
+</body>
+</html>
